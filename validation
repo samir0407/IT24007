@@ -1,0 +1,41 @@
+package validation;
+
+public class AgeValidator {
+    public static void validate(int age) throws InvalidAgeException {
+        if (age < 18 || age > 40) {
+            throw new InvalidAgeException("Age must be between 20 and 40");
+        }
+    }
+}
+
+
+package validation;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class DeptValidator {
+    public static void validate(String dept) throws InvalidDeptException {
+        List<String> validDepts = Arrays.asList("CSE", "ICT","ICE","ME","TE");
+        if (!validDepts.contains(dept)) {
+            throw new InvalidDeptException("Dept. CSE, ICT, ICE, ME or TE may be");
+        }
+    }
+}
+
+package validation;
+
+public class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+package validation;
+
+public class InvalidDeptException extends Exception {
+    public InvalidDeptException(String message) {
+        super(message);
+    }
+}
